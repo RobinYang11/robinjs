@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		
+		class Component{
+
+
+			state={
+				name:'robin',
+				age:33
+			}
+
+			changeValue=()=>{
+				this.state.name='changedName';
+				this.state.age='changedAge';
+			}
+
+			render(){
+				return `
+					<div ${this.changeValue()}>this is compoent</div>
+				`
+			}
+		}
+	</script>
+</body>
+
+</html>
