@@ -8,27 +8,69 @@
 </head>
 
 <body>
+
+	<div id="app">
+
+	</div>
 	<script>
-		
-		class Component{
 
+		class Component {
 
-			state={
-				name:'robin',
-				age:33
+			state = {
+				name: 'robin',
+				age: 33
 			}
 
-			changeValue=()=>{
-				this.state.name='changedName';
-				this.state.age='changedAge';
+			changeValue = () => {
+				console.log("roibn")
+				this.state.name = 'changedName';
+				this.state.age = 'changedAge';
 			}
 
-			render(){
+			render() {
+				// this.changeValue.bind(this);
 				return `
-					<div ${this.changeValue()}>this is compoent</div>
+					<div onclick=${this.changeValue()}>this is compoent</div>
 				`
 			}
 		}
+		render(new Component(), document.getElementById('app'));
+		function render(compoent, root) {
+			root.innerHTML = compoent.render();
+		}
+
+		class Vnode {
+			props = {};
+			type = "";
+			_children = null;
+			_dom = "";
+			_constructor = null;
+			_nextDom = '';
+			_component = null;
+		}
+
+		function createElement(component) {
+
+		}
+
+		var Abb = React.createElement(
+			React.Fragement,
+			null,
+			React.createElement("div", null),
+			React.createElement("button", null, "c"),
+			React.createElement("h1", null, "robin")
+		);
+
+		React.createElement(
+			"div",
+			null, props.name,
+			React.createElement("h3",
+				null,
+				props.age,
+				React.createElement(Bar, null),
+				React.createElement(Abb, null)
+			)
+		);
 	</script>
 </body>
 
